@@ -8,17 +8,37 @@ void print_multiplication_table(int number);
 int main() {
     int temp_c;
     int temp_f;
+    int read;
 
-    printf("Enter temperature in Celsius:");
-    scanf("%d", &temp_c);
-    printf("Temperature: %d°C = %dF°\n", temp_c, celsius_to_fahrenheit(temp_c));
+    while (1) {
+        printf("\n *** Running program *** \n");
+        printf("Enter temperature in Celsius:");
+        read = scanf("%d", &temp_c);
+        if (read != 1) {
+            printf("Error reading value for celsius.");
+            return 1;
+        }
+        if (temp_c == 0) {
+            printf("\n *** Exiting program. *** \n");
+            break;
+        }
+        printf("Temperature: %d°C = %dF°\n", temp_c, celsius_to_fahrenheit(temp_c));
 
-    printf("Enter temperature in Farenheit:");
-    scanf("%d", &temp_f);
-    printf("Temperature %d°F = %dC°\n", temp_f, farenheit_to_celsius(temp_f));
+        printf("Enter temperature in Farenheit:");
+        read = scanf("%d", &temp_f);
+        if (temp_f == 0) {
+            printf("\n *** Exiting program. *** \n");
+            break;
+        }
+        if (read != 1) {
+            printf("Error reading value for farenheit.");
+            return 1;
+        }
+        printf("Temperature %d°F = %dC°\n", temp_f, farenheit_to_celsius(temp_f));
 
-    printf("\nMultiplication Table for 5:\n");
-    print_multiplication_table(5);
+        printf("\nMultiplication Table for 5:\n");
+        print_multiplication_table(5);
+    }
 
     return 0;
 }
