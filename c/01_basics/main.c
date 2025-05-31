@@ -2,7 +2,7 @@
 
 // Function declaration
 int celsius_to_fahrenheit(int celsius);
-int farenheit_to_celsius(int farenheit);
+int fahrenheit_to_celsius(int fahrenheit);
 void print_multiplication_table(int number);
 
 int main() {
@@ -31,10 +31,10 @@ int main() {
             break;
         }
         if (read != 1) {
-            printf("Error reading value for farenheit.");
+            printf("Error reading value for fahrenheit.");
             return 1;
         }
-        printf("Temperature %d°F = %dC°\n", temp_f, farenheit_to_celsius(temp_f));
+        printf("Temperature %d°F = %dC°\n", temp_f, fahrenheit_to_celsius(temp_f));
 
         printf("\nMultiplication Table for 5:\n");
         print_multiplication_table(5);
@@ -47,8 +47,8 @@ int celsius_to_fahrenheit(int celsius) {
     return (celsius * 9 / 5) + 32;
 }
 
-int farenheit_to_celsius(int farenheit) {
-    return (farenheit - 32) / 9 * 5;
+int fahrenheit_to_celsius(int fahrenheit) {
+    return (fahrenheit - 32) * 5 / 9;
 }
 
 void print_multiplication_table(int number) {
