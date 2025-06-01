@@ -9,6 +9,7 @@ void swap(int* a, int* b);
 void reverse_string(char* string);
 void reverse_string_steroids(char* string);
 void to_upper_case(char* string);
+char custom_to_uppercase(char c);
 
 int main() {
     int c = 30;
@@ -82,5 +83,13 @@ void reverse_string_steroids(char *string) {
 }
 
 void to_upper_case(char* string) {
-    for (; (*string = toupper(*string)); string++);
+    // for (; (*string = toupper(*string)); string++);
+    for (; (*string = custom_to_uppercase(*string)); string++);
+}
+
+char custom_to_uppercase(char c) {
+    if (c >= 'a' && c <= 'z') {
+        return c - 32;
+    }
+    return c;
 }
