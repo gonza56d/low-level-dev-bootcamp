@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <assert.h>
 #include <string.h>
@@ -7,6 +8,7 @@ int string_length(const char* str);
 void swap(int* a, int* b);
 void reverse_string(char* string);
 void reverse_string_steroids(char* string);
+void to_upper_case(char* string);
 
 int main() {
     int c = 30;
@@ -35,6 +37,9 @@ int main() {
     assert(strcmp(to_reverse, "olleH") == 0);
     assert(strcmp(to_reverse_b, "dlroW") == 0);
 
+    char to_upper[] = "uppercaseme";
+    to_upper_case(to_upper);
+    assert(strcmp(to_upper, "UPPERCASEME") == 0);
     return 0;
 }
 
@@ -74,4 +79,8 @@ void reverse_string_steroids(char *string) {
         string[i] = string[j];
         string[j] = temp;
     }
+}
+
+void to_upper_case(char* string) {
+    for (; (*string = toupper(*string)); string++);
 }
