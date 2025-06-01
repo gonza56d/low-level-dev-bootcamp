@@ -10,6 +10,7 @@ void reverse_string(char* string);
 void reverse_string_steroids(char* string);
 void to_upper_case(char* string);
 char custom_to_uppercase(char c);
+int char_index(const char* string, char c);
 
 int main() {
     int c = 30;
@@ -41,6 +42,17 @@ int main() {
     char to_upper[] = "uppercaseme";
     to_upper_case(to_upper);
     assert(strcmp(to_upper, "UPPERCASEME") == 0);
+
+    char hello[] = "hello";
+    int char_at_a = char_index(hello, 'h');
+    int char_at_b = char_index(hello, 'o');
+    int char_at_c = char_index(hello, 'l');
+    int char_at_d = char_index(hello, 'z');
+    assert(char_at_a == 0);
+    assert(char_at_b == 4);
+    assert(char_at_c == 2);
+    assert(char_at_d == -1);
+    
     return 0;
 }
 
@@ -92,4 +104,13 @@ char custom_to_uppercase(char c) {
         return c - 32;
     }
     return c;
+}
+
+int char_index(const char* string, char c) {
+    for (int i = 0; *(string + i) != '\0'; i++) {
+        if (string[i] == c) {
+            return i;
+        }
+    }
+    return -1;
 }
