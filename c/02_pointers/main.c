@@ -6,6 +6,7 @@ void celsius_to_fahrenheit_ptr(int* celsius, int* fahrenheit);
 int string_length(const char* str);
 void swap(int* a, int* b);
 void reverse_string(char* string);
+void reverse_string_steroids(char* string);
 
 int main() {
     int c = 30;
@@ -26,9 +27,13 @@ int main() {
     assert(a == 6 && b == 2);
 
     char to_reverse[] = "Hello";
+    char to_reverse_b[] = "World";
     reverse_string(to_reverse);
-    printf("to_reverse value: %s", to_reverse);
+    reverse_string_steroids(to_reverse_b);
+    printf("\nto_reverse value: %s\n", to_reverse);
+    printf("\nto_reverse_b value: %s\n", to_reverse_b);
     assert(strcmp(to_reverse, "olleH") == 0);
+    assert(strcmp(to_reverse_b, "dlroW") == 0);
 
     return 0;
 }
@@ -60,5 +65,13 @@ void reverse_string(char *string) {
         string[i] = right;
         string[j] = left;
         j--;
+    }
+}
+
+void reverse_string_steroids(char *string) {
+    for (int i = 0, j = string_length(string) - 1; i < j; i++, j--) {
+        char temp = string[i];
+        string[i] = string[j];
+        string[j] = temp;
     }
 }
